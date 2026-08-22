@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Enterprise Support Desk</title>
 </head>
+
 <body>
-
-    <h1>Enterprise IT Support Desk</h1>
-    <p>Please fill out the form below to submit a support ticket. All required fields are marked with an asterisk (*).</p>
-
+    <header>
+        <h1>Enterprise IT Support Desk</h1>
+        <p>Please fill out the form below to submit a support ticket. All required fields are marked with an asterisk
+            (*).</p>
+    </header>
+    <main>
     <form action="/submit-ticket" method="POST" enctype="multipart/form-data">
-        
+
         <fieldset>
             <legend>Employee Details</legend>
             <label for="fullName">Full Name *:</label>
             <input type="text" id="fullName" name="fullName" required minlength="3" maxlength="50"><br><br>
 
             <label for="empId">Employee ID (e.g., EMP-1234) *:</label>
-            <input type="text" id="empId" name="empId" required pattern="^EMP-\d{4}$" title="Format: EMP- followed by 4 digits"><br><br>
+            <input type="text" id="empId" name="empId" required pattern="^EMP-\d{4}$"
+                title="Format: EMP- followed by 4 digits"><br><br>
 
             <label for="email">Corporate Email *:</label>
             <input type="email" id="email" name="email" required><br><br>
@@ -53,7 +58,8 @@
             </datalist><br><br>
 
             <label for="description">Detailed Description *:</label><br>
-            <textarea id="description" name="description" rows="6" cols="50" required placeholder="Describe the problem, steps to reproduce, and any error codes..."></textarea>
+            <textarea id="description" name="description" rows="6" cols="50" required
+                placeholder="Describe the problem, steps to reproduce, and any error codes..."></textarea>
         </fieldset>
         <br>
         <fieldset>
@@ -65,5 +71,11 @@
         <button type="submit">Submit Ticket</button>
         <button type="reset">Clear Form</button>
     </form>
+    </main>
+    <footer>
+        <br><br><br><br><br><br><br><br><br><br><br><br><hr>
+        <p><small>&copy; 2026 all rights reserved.</small></p>
+    </footer>
 </body>
+
 </html>
