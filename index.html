@@ -3,79 +3,106 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Support Desk</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Enterprise IT Support Desk</h1>
-        <p>Please fill out the form below to submit a support ticket. All required fields are marked with an asterisk
-            (*).</p>
-    </header>
-    <main>
-    <form action="/submit-ticket" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <header>
+            <h1>Enterprise IT Support Desk</h1>
+            <p>Please fill out the form below to submit a support ticket. All required fields are marked with an asterisk (*).</p>
+        </header>
+        
+        <main>
+            <form action="/submit-ticket" method="POST" enctype="multipart/form-data">
+                
+                <fieldset>
+                    <legend>Employee Details</legend>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name *:</label>
+                        <input type="text" id="fullName" name="fullName" required minlength="3" maxlength="50">
+                    </div>
 
-        <fieldset>
-            <legend>Employee Details</legend>
-            <label for="fullName">Full Name *:</label>
-            <input type="text" id="fullName" name="fullName" required minlength="3" maxlength="50"><br><br>
+                    <div class="form-group">
+                        <label for="empId">Employee ID (e.g., EMP-1234) *:</label>
+                        <input type="text" id="empId" name="empId" required pattern="^EMP-\d{4}$" title="Format: EMP- followed by 4 digits">
+                    </div>
 
-            <label for="empId">Employee ID (e.g., EMP-1234) *:</label>
-            <input type="text" id="empId" name="empId" required pattern="^EMP-\d{4}$"
-                title="Format: EMP- followed by 4 digits"><br><br>
+                    <div class="form-group">
+                        <label for="email">Corporate Email *:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-            <label for="email">Corporate Email *:</label>
-            <input type="email" id="email" name="email" required><br><br>
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select id="department" name="department">
+                            <option value="engineering">Engineering</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="sales">Sales</option>
+                            <option value="finance">Finance</option>
+                            <option value="arts">Humanities</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-            <label for="department">Department:</label>
-            <select id="department" name="department">
-                <option value="engineering">Engineering</option>
-                <option value="hr">Human Resources</option>
-                <option value="sales">Sales</option>
-                <option value="finance">Finance</option>
-                <option value="arts">Humanities</option>
-            </select>
-        </fieldset>
-        <br>
+                <fieldset>
+                    <legend>Issue Details</legend>
+                    
+                    <div class="form-group">
+                        <label>Priority Level:</label>
+                        <div class="radio-group">
+                            <label for="low" class="radio-label">
+                                <input type="radio" id="low" name="priority" value="low" checked> Low
+                            </label>
+                            <label for="medium" class="radio-label">
+                                <input type="radio" id="medium" name="priority" value="medium"> Medium
+                            </label>
+                            <label for="high" class="radio-label">
+                                <input type="radio" id="high" name="priority" value="high"> High
+                            </label>
+                        </div>
+                    </div>
 
-        <fieldset>
-            <legend>Issue Details</legend>
-            <label for="priority">Priority Level:</label>
-            <input type="radio" id="low" name="priority" value="low" checked>
-            <label for="low">Low</label>
-            <input type="radio" id="medium" name="priority" value="medium">
-            <label for="medium">Medium</label>
-            <input type="radio" id="high" name="priority" value="high">
-            <label for="high">High</label><br><br>
+                    <div class="form-group">
+                        <label for="issueType">Issue Category *:</label>
+                        <input type="text" id="issueType" name="issueType" list="categories" required>
+                        <datalist id="categories">
+                            <option value="Hardware Failure"></option>
+                            <option value="Software Bug"></option>
+                            <option value="Access Request"></option>
+                            <option value="Network Outage"></option>
+                        </datalist>
+                    </div>
 
-            <label for="issueType">Issue Category:</label>
-            <input type="text" id="issueType" name="issueType" list="categories" required>
-            <datalist id="categories">
-                <option value="Hardware Failure">
-                <option value="Software Bug">
-                <option value="Access Request">
-                <option value="Network Outage">
-            </datalist><br><br>
+                    <div class="form-group">
+                        <label for="description">Detailed Description *:</label>
+                        <textarea id="description" name="description" rows="5" required placeholder="Describe the problem, steps to reproduce, and any error codes..."></textarea>
+                    </div>
+                </fieldset>
 
-            <label for="description">Detailed Description *:</label><br>
-            <textarea id="description" name="description" rows="6" cols="50" required
-                placeholder="Describe the problem, steps to reproduce, and any error codes..."></textarea>
-        </fieldset>
-        <br>
-        <fieldset>
-            <legend>Attachments & Evidence</legend>
-            <label for="screenshot">Upload Screenshot or Log File (Max 5MB):</label>
-            <input type="file" id="screenshot" name="screenshot" accept=".png, .jpg, .txt, .pdf, .log" multiple>
-        </fieldset>
-        <br>
-        <button type="submit">Submit Ticket</button>
-        <button type="reset">Clear Form</button>
-    </form>
-    </main>
-    <footer>
-        <br><br><br><br><br><br><br><br><br><br><br><br><hr>
-        <p><small>&copy; 2026 all rights reserved.</small></p>
-    </footer>
+                <fieldset>
+                    <legend>Attachments & Evidence</legend>
+                    <div class="form-group">
+                        <label for="screenshot">Upload Screenshot or Log File (Max 5MB):</label>
+                        <input type="file" id="screenshot" name="screenshot" accept=".png, .jpg, .txt, .pdf, .log" multiple>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Ticket</button>
+                    <button type="reset" class="btn-secondary">Clear Form</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <hr>
+            <p><small>&copy; 2026 All rights reserved.</small></p>
+        </footer>
+    </div>
 </body>
 
 </html>
