@@ -1,0 +1,188 @@
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+/* Main Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    color: #004080;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Fieldsets and Legends */
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #fafbfc;
+}
+
+legend {
+    background-color: #004080;
+    color: #fff;
+    padding: 0.25rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Form Groups (replaces the old <br> tags) */
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Labels and Inputs */
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #004080;
+    box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 0.4rem;
+    cursor: pointer;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #004080;
+    color: #ffffff;
+    flex: 1; /* Makes submit button slightly larger/more prominent */
+}
+
+.btn-primary:hover {
+    background-color: #003060;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #888;
+}
+
+footer hr {
+    border: 0;
+    height: 1px;
+    background: #eaeaea;
+    margin-bottom: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
